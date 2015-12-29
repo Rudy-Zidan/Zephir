@@ -7,7 +7,6 @@
  */
 
 require_once(__DIR__ . '\..\config\zep_loader.php');
-
 $kernel = new \library\zephir\system\core\kernel();
 $kernel->run();
 

@@ -17,4 +17,8 @@ class config
     {
         $this->setting = $setting;
     }
+
+    public function get($name){
+       return $this->setting[$name];
+    }
 }

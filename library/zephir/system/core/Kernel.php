@@ -18,6 +18,7 @@ class kernel
         $this->load_config();
         $this->load_services();
         $this->set_environment();
+        $this->route();
     }
 
     private function load_config(){
@@ -25,6 +26,11 @@ class kernel
     }
     private function load_services(){
         $this->services = require_once(__DIR__ . '\..\..\..\..\config\services.php');
+    }
+    private function route(){
+        $this->services->get('request')->remove_magic_quotes();
+        $this->services->get('request')->unregister_globals();
+        $this->services->get('dispatcher')->attach($this->services->get('request')->get()['url'], $this->config->get('route'));
     }
     private function set_environment(){
         if($this->config->setting['environment']=='development') {

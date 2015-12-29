@@ -15,5 +15,17 @@ return new \library\zephir\system\config(
           'user'        =>  'root',
           'password'    =>  'eragon'
       ),
+        'route' => array(
+            'index' => array(
+                'controller' => 0,
+                'action'     => 1,
+                'params'     => 2
+            ),
+            'admin'  => array(
+                'controller' => 1,
+                'action'     => 2,
+                'params'     => 3,
+            )
+        )
   ]
 );
